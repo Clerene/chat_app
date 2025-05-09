@@ -7,24 +7,21 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      drawer: Drawer(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print('Button Clicked');
-        },
-      ),
-      // TODO: Add the text and image from the design
-
-      body: Column(
+      // TODO: Add Text and image to the vertical and horizontal centre of widget
+      body: Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text('Let\'s sign you in!',
+            textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 30,
               color: Colors.brown,
               fontWeight: FontWeight.bold, letterSpacing: 0.5,
             ),
           ),
+          //TODO: Align text to the centre
           Text(
             'Welcome back! \n You\'ve been missed!',
             style: TextStyle(
@@ -54,6 +51,7 @@ class LoginPage extends StatelessWidget {
               )
           )
         ],
+      ),
       ),
     );
   }
