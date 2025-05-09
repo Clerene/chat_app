@@ -8,7 +8,7 @@ class ChatPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        elevation: 8,
+        elevation: 0,
         title: Text('Hi Pooja!'),
         actions: [
           IconButton(
@@ -18,9 +18,12 @@ class ChatPage extends StatelessWidget {
               icon: Icon(Icons.logout))
         ],
       ),
-      body: ListView(
+      body: Column(
         children: [
-            Align(
+          Expanded(
+      child:ListView(
+        children: [
+          Align(
             alignment: Alignment.centerLeft,
           child: Container(
             padding: EdgeInsets.all(24),
@@ -44,7 +47,7 @@ class ChatPage extends StatelessWidget {
             ),
           ),
             ),
-                Align (
+          Align (
         alignment: Alignment.centerRight,
           child:Container(
             padding: EdgeInsets.all(24),
@@ -67,7 +70,6 @@ class ChatPage extends StatelessWidget {
             ),
           ),
             ),
-
           Align(
             alignment: Alignment.centerRight,
             child: Container(
@@ -94,6 +96,9 @@ class ChatPage extends StatelessWidget {
           ),
           ),
 
+        ],
+    ),
+    ),
           Container(
             height: 100,
             child: Row(
@@ -116,7 +121,7 @@ class ChatPage extends StatelessWidget {
                 borderRadius: BorderRadius.vertical(top:Radius.circular (20))
             ),
           )
-        ],
+    ],
       ),
     );
   }
