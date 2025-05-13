@@ -3,6 +3,7 @@ import 'package:chat_app/utils/spaces.dart';
 import 'package:chat_app/utils/textfield_styles.dart';
 import 'package:chat_app/widgets/login_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'chat_page.dart';
 
@@ -26,6 +27,7 @@ class LoginPage extends StatelessWidget {
   }
   final userNameController = TextEditingController();
    final passwordController = TextEditingController();
+   final _mainUrl = "https://poojabhaumik.com";
 
   @override
   Widget build(BuildContext context) {
@@ -95,13 +97,16 @@ class LoginPage extends StatelessWidget {
                    fontSize: 24,
                    fontWeight: FontWeight.w300))),
          GestureDetector(
-           onTap: () {
+           onTap: () async{
              print('Linked clicked!');
+             if(!await launch(_mainUrl)) {
+               throw 'Could not launch this!';
+             }
            },
            child: Column(
              children: [
                Text('Find us on'),
-         Text('https://poojabhaumik.com'),
+         Text(_mainUrl),
           ],
          ),
         ),
