@@ -14,7 +14,7 @@ class ChatMessageEntity{
 }
 
 class Author{
-  String username;
+  String userName;
 
-  Author({required this.username});
+  Author({required this.userName});
 }
