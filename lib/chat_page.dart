@@ -14,6 +14,9 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
+  waiter.getmenu();
+  waiter.getTodaySpecialDish();
+
   List<ChatMessageEntity> _messages = [];
 
   _loadInitialMessages() async {
