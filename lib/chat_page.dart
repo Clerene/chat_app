@@ -44,8 +44,8 @@ class _ChatPageState extends State<ChatPage> {
     });
   }
 
-  _getNetworkImages() async {
-    var endpointUrl = Uri.parse('https://pixelford.com/345345');
+  Future<List<PixelfordImage>> _getNetworkImages() async {
+    var endpointUrl = Uri.parse('https://pixelford.com/api2/images');
 
     final response = await http.get(endpointUrl);
     if(response.statusCode==200) {
@@ -54,6 +54,9 @@ class _ChatPageState extends State<ChatPage> {
         return PixelfordImage.fromJson(listItem);
       }).toList();
       print(_imageList[0].urlFullSize);
+      return _imageList;
+    }else{
+      throw Exception('API not successful!');
     }
   }
 
@@ -77,6 +80,14 @@ class _ChatPageState extends State<ChatPage> {
       ),
       body: Column(
         children: [
+          FutureBuilder<List<PixelfordImage>>(
+              future: _getNetworkImages(),
+              builder: (BuildContext context, AsyncSnapshot<List<PixelfordImage>> snapshot){
+                if(snapshot.hasData)
+                  return Image.network(snapshot.data![0].urlSmallSize);
+
+                return CircularProgressIndicator();
+              }),
           Expanded(
               child: ListView.builder(
                   itemCount: _messages.length,
