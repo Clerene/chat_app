@@ -40,5 +40,13 @@
     "id": "10004",
     "text": "Pixel really misses you btw!",
     "image": "https://pixelford.com/api/img/small/Dog_LIL_134140.jpg"
+  },
+  {
+    "author": {
+      "username": "janeDoe"
+    },
+    "createdAt": 1598438599000,
+    "id": "10003",
+    "text": "Oh nooo! I do too!"
   }
 ]
