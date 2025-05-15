@@ -36,6 +36,12 @@ class _ChatPageState extends State<ChatPage> {
     super.initState();
   }
 
+  onMessageSent(ChatMessageEntity entity){
+    _messages.add(entity);
+    setState(() {
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final username = ModalRoute.of(context)!.settings.arguments as String;
@@ -73,7 +79,8 @@ class _ChatPageState extends State<ChatPage> {
             //    ],
             //  ),
           ),
-          ChatInput(),
+          ChatInput(onSubmit: onMessageSent,
+          ),
         ],
       ),
     );
