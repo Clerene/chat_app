@@ -1,3 +1,5 @@
+
+
 import 'package:chat_app/utils/brand_color.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_app/widgets/chat_input.dart';
@@ -14,6 +16,7 @@ class ChatApp extends StatelessWidget {
 // TODO: implement build
     return MaterialApp(
       theme: ThemeData(
+          canvasColor: Colors.transparent,
           primarySwatch: BrandColor.primaryColor,
           appBarTheme: AppBarTheme(
               backgroundColor: Colors.blue,
@@ -25,4 +28,3 @@ class ChatApp extends StatelessWidget {
     );
   }
 }
-
