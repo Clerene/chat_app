@@ -1,14 +1,19 @@
 
 
+import 'package:chat_app/services/auth_service.dart';
 import 'package:chat_app/utils/brand_color.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_app/widgets/chat_input.dart';
+import 'package:provider/provider.dart';
 import 'login_page.dart';
 import 'chat_page.dart';
 import 'counter_stateful_demo.dart';
 
 void main (){
-  runApp(ChatApp());
+  runApp(Provider(
+      create: (BuildContext context) => AuthService(),
+      child: ChatApp()
+  ));
 }
 class ChatApp extends StatelessWidget {
   @override
